@@ -61,22 +61,10 @@ class App extends Component {
             cache: new InMemoryCache()
         });
 
-        this.observable = await this.client.subscribe({
-            query: gql`
-    subscription {
-      items {
-        name
-        x
-        y
-      }
-    }
-  `
-        });
-
         const response = await this.client.query({
             query: gql`
                     query {
-                        Items {
+                        items {
                             id
                             name
                             x
